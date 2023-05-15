@@ -119,12 +119,51 @@ public class main {
 
         }
     
-    
 
     private static void searchUser() {
+        String usernameTemp;
+        Scanner sc =  new Scanner(System.in);
+
+        System.out.println(""); 
+        System.out.println("Search for an user"); 
+        System.out.println("--------------------------"); 
+        System.out.print("Please enter in the user username: ");
+        usernameTemp = sc.nextLine(); 
+
+        User userTemp = Users.searchUser(usernameTemp); 
+
+        if (userTemp == null) {
+            System.out.println("");
+            System.out.println("No User has been found with that username");
+            printMenu();
+        }
+        System.out.println(""); 
+        System.out.println("User"); 
+        System.out.println("---------------------------------------"); 
+        System.out.print("Username: "+ userTemp.getUsername() + " Name: "+ userTemp.getName() + " Age: " + userTemp.getAge());
+        System.out.println(""); 
+        System.out.println("---------------------------------------"); 
+
+        System.out.println(""); 
+        printMenu(); 
+
     }
 
     private static void changeName() {
+    
+        String usernameTemp;
+        Scanner sc =  new Scanner(System.in);
+
+        System.out.println(""); 
+        System.out.println("Search for an user"); 
+        System.out.println("--------------------------"); 
+        System.out.print("Please enter in the user username: ");
+        usernameTemp = sc.nextLine(); 
+
+     /// for loop to search for individual user 
+     
+
+
     }
 
     private static void changeAge() {
