@@ -32,6 +32,7 @@ public class Users {
      * @param password
      * @return
      */
+    // method used to change user details/ 
     public static boolean validateUser(String username, String password) {
 
         if (users.size() <= 0) {
@@ -95,4 +96,40 @@ public class Users {
 
     }
 
+
+
+//setter to change arrasy list 
+public static boolean setUserArray(ArrayList<User> newUserList) {
+
+    if (newUserList == null) {
+        return false;
+    }
+
+    else {
+        users = newUserList; 
+    }
+    return false; 
 }
+
+//  search user via username 
+public static User searchUser(String username) {
+
+    if  (users.size() <= 0) {
+        return null; 
+    }
+
+    for (int i = 0; i < users.size(); i++ ) {
+        if (users.get(i).getUsername().equals(username)) {
+            return users.get(i);
+        }
+    }
+
+    return null;
+
+}
+
+
+
+}
+
+
