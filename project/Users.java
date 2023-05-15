@@ -3,7 +3,7 @@ package project;
 import java.util.ArrayList;
 
 public class Users {
-    public static ArrayList <User> users = new ArrayList<User>();
+    private static ArrayList <User> users = new ArrayList<User>();
 
     // INITIAL 
     public static boolean searchUsername(String username) {
