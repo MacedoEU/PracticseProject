@@ -96,7 +96,6 @@ public class main {
                          System.out.println("");
                          System.out.println("User " + username + " has been added");
                          System.out.println("------------------------------------------------"); 
-                         System.out.println(Users.users.size());
                          printMenu();
                        }
      
@@ -133,13 +132,28 @@ public class main {
 
 
     private static void displayUsers() {
-
         ArrayList<User> userArray = Users.printUser(); 
 
-        for (int i = 0; i < userArray.size(); i++ ) {
-            System.out.println(userArray.get(i).getUsername()); 
+
+        if (userArray == null) {
+            System.out.println(""); 
+            System.out.println("No Users have been added to the system please add an user") ; 
+            System.out.println("");
+            printMenu();
         }
-     
+
+        System.out.println(""); 
+        System.out.println("Users"); 
+        System.out.println("-------------------------------------------"); 
+        for (int i = 0; i < userArray.size(); i++ ) {
+            System.out.print("Username: " + userArray.get(i).getUsername() + " Name: " + userArray.get(i).getName() + " Age: " +  userArray.get(i).getAge()); 
+            System.out.println("");
+
+        }
+
+        System.out.println("-------------------------------------------"); 
+        System.out.println(""); 
+
         printMenu();
 
         
