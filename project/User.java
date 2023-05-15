@@ -2,10 +2,10 @@ package project;
 
 public class User {
 
-    private static String username; 
-    private static String name; 
-    private static String password; 
-    private static int age; 
+    private  String username; 
+    private  String name; 
+    private  String password; 
+    private  int age; 
 
     public User(String username, String name, String password, int age) {
         this.username = username; 
@@ -42,7 +42,7 @@ public class User {
         return this.password; 
     }
 
-    protected int getAge() {
+    protected  int getAge() {
         return this.age; 
     }
 

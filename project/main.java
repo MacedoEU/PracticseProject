@@ -1,5 +1,6 @@
 package project;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class main {
@@ -16,6 +17,7 @@ public class main {
         System.out.println("2. Search User");
         System.out.println("3. Change name");
         System.out.println("4. Change age"); 
+        System.out.println("5. Display Users");
         System.out.println("---------------------------------");
         decision();
 
@@ -41,6 +43,10 @@ public class main {
             changeAge();
         }
 
+        else if (choice == 5) {
+            displayUsers(); 
+        }
+
         else {
             System.out.println("");
             System.out.println("Invalid decision");
@@ -48,15 +54,73 @@ public class main {
             printMenu();
         }
 
+        sc.close();
+
     }
+
 
 
     // verify login details 
     private static void createNewUser() {
+        String username; 
+        String name; 
+        String password; 
+        int age;
+        
         Scanner sc = new Scanner(System.in); 
-         
+        System.out.println(""); 
+        System.out.println("Create a New User ");
+        System.out.println("--------------------"   ); 
+        System.out.print("Please enter in a username: "); 
+        username = sc.nextLine(); 
+
+        // verifry if username exists 
+        if  (Users.searchUsername(username) == false) {
+            System.out.print("Please enter in a Name: ");
+            name = sc.nextLine(); 
+            System.out.print("Please enter in a  password (Must have at least 6 charcters): ");
+            password = sc.nextLine();
+     
+                       if (Users.validatePassword(password) == false)  {
+                             System.out.println(""); 
+                             System.out.println("Password length is not 6 charcters or longer please enter in another password"); 
+                             System.out.println(""); 
+                             createNewUser(); 
+                       }
+     
+                       System.out.print("Please enter in an age: ");
+                       age = sc.nextInt(); 
+                       Users.createNewUser(username, name, password, age);
+                      
+                       if (Users.validateUser(username, password) == true) {
+                         System.out.println("");
+                         System.out.println("User " + username + " has been added");
+                         System.out.println("------------------------------------------------"); 
+                         System.out.println(Users.users.size());
+                         printMenu();
+                       }
+     
+                       else {
+                         System.out.println("An error has occured please try again ");
+                         createNewUser(); 
+                       }
+     
+        }  
+
+        else if (Users.searchUsername(username) == true)  {
+            System.out.println(""); 
+            System.out.println("Username alreadly exists please choose another one");
+            System.out.println(""); 
+            createNewUser(); 
+        }
+
+      
+            
+            
+
+        }
     
-    }
+    
 
     private static void searchUser() {
     }
@@ -65,6 +129,20 @@ public class main {
     }
 
     private static void changeAge() {
+    }
+
+
+    private static void displayUsers() {
+
+        ArrayList<User> userArray = Users.printUser(); 
+
+        for (int i = 0; i < userArray.size(); i++ ) {
+            System.out.println(userArray.get(i).getUsername()); 
+        }
+     
+        printMenu();
+
+        
     }
 
 

@@ -3,56 +3,96 @@ package project;
 import java.util.ArrayList;
 
 public class Users {
-    public static ArrayList <User> users = new ArrayList();
+    public static ArrayList <User> users = new ArrayList<User>();
 
-    public static int searchUsername(String username) {
+    // INITIAL 
+    public static boolean searchUsername(String username) {
 
-        if (users == null) {
-            return 0; 
+
+        if (users.size() <= 0) {
+            return false;
         }
 
-        else {
 
-            for (int i = 0; i <= users.size(); i++ ) {
+            for (int i = 0; i < users.size(); i++) {
 
-                if (users.get(i).getUsername() == username) {
-                    return 1;
+                if (users.get(i).getUsername().equals(username)) {
+                    return true;
                 }
-                else {
-                    return 0;
-                }
+           
             }
-
-        }
-        return 0;
-    }
-
-
-    public static int validateUser(String username, String password) {
-
-        if (users == null) {
-            return 0; 
-        }
-
-        else {
-
-            for (int i = 0; i <= users.size(); i++) {
-
-                if (users.get(i).getUsername() == username && users.get(i).getPassword() == password) {
-                    return 1;
-                }
-                else {
-                    return 0;
-                }
-            }
-            return 0;
-        }
 
         
+        return false;
+    }
+
+
+    /**
+     * @param username
+     * @param password
+     * @return
+     */
+    public static boolean validateUser(String username, String password) {
+
+        if (users.size() <= 0) {
+            return false; 
+        }
+
+        else {
+
+            for (int i = 0; i < users.size(); i++) {
+
+                if (users.get(i).getUsername().equals(username)  && users.get(i).getPassword().equals(password)) {
+                    return true;
+                }
+            }
+     
+        }
+        return false;
 
     }
 
 
+    public static boolean validatePassword(String password) {
 
+        if (password == null) { 
+            return false;
+        }
+
+        else {
+          
+            int length = password.length(); 
+
+            if (length > 5) {
+                return true;
+            }
+            else {
+                return false;
+            }
+      
+        }
+    }
+
+    public static ArrayList<User> printUser() {
+        
+
+        if (users.size() <= 0) {
+            return null;
+        }
+
+        ArrayList<User> userArray = users;
+
+
+        return userArray;
+
+    }
+
+    //create method to add arrayList
+    public static void createNewUser(String username, String name, String password, int age )  {
+
+        User userTemp = new User(username, name, password, age); 
+        Users.users.add(userTemp); 
+
+    }
 
 }
