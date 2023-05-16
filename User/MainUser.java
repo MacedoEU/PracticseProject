@@ -21,6 +21,7 @@ public class MainUser {
         System.out.println("3. Change name");
         System.out.println("4. Change age"); 
         System.out.println("5. Display Users");
+        System.out.println("6. Get User password"); 
         System.out.println("---------------------------------");
         decision();
 
@@ -51,6 +52,10 @@ public class MainUser {
             displayUsers(); 
         }
 
+        else if (choice == 6) {
+            getUserPassword(); 
+        }
+
         else {
             System.out.println("");
             System.out.println("Invalid decision");
@@ -73,6 +78,9 @@ public class MainUser {
     }
 
 
+
+    private static void getUserPassword() {
+    }
 
     // verify login details 
     private static void createNewUser() {
