@@ -8,7 +8,6 @@ public class Users {
     // INITIAL 
     protected static boolean searchUsername(String username) {
 
-
         if (users.size() <= 0) {
             return false;
         }
@@ -20,7 +19,6 @@ public class Users {
            
             }
 
-        
         return false;
     }
 
@@ -32,7 +30,7 @@ public class Users {
      */
     // method used to change user details/ 
     protected static boolean validateUser(String username, String password) {
-
+        try {
         if (users.size() <= 0) {
             return false; 
         }
@@ -46,7 +44,12 @@ public class Users {
                 }
             }
      
-        }
+        } 
+
+        } catch (Exception e) {
+            return false; 
+        } 
+
         return false;
 
     }
@@ -54,6 +57,7 @@ public class Users {
 
     protected static boolean validatePassword(String password) {
 
+        try {
         if (password == null) { 
             return false;
         }
@@ -70,28 +74,43 @@ public class Users {
             }
       
         }
+
+    } catch (Exception e) {
+        return false; 
+    } 
+
+
     }
 
     //method return user array list
     protected static ArrayList<User> printUser() {
         
-
+        try {
         if (users.size() <= 0) {
             return null;
         }
 
         ArrayList<User> userArray = users;
-
-
         return userArray;
+
+
+    } catch (Exception e) {
+        return null;
+    }
+
+     
 
     }
 
     //create method to add arrayList
-    protected static void createNewUser(String username, String name, String password, int age )  {
-
+    protected static boolean createNewUser(String username, String name, String password, int age )  {
+        try {
         User userTemp = new User(username, name, password, age); 
-        Users.users.add(userTemp); 
+        Users.users.add(userTemp);
+        return true; 
+        }    catch (Exception e) {
+            return false;
+        }
 
     }
 
@@ -99,7 +118,7 @@ public class Users {
 
 //setter to change arrasy list 
 protected static boolean setUserArray(ArrayList<User> newUserList) {
-
+try { 
     if (newUserList == null) {
         return false;
     }
@@ -107,11 +126,17 @@ protected static boolean setUserArray(ArrayList<User> newUserList) {
     else {
         users = newUserList; 
     }
+    return false;
+    
+} catch (Exception e) {
     return false; 
+}
 }
 
 //  search user via username 
 protected static User searchUser(String username) {
+
+    try {
 
     if  (users.size() <= 0) {
         return null; 
@@ -124,8 +149,11 @@ protected static User searchUser(String username) {
     }
 
     return null;
-
+} catch (Exception e) {
+    return null;
 }
+}
+
 
 
 

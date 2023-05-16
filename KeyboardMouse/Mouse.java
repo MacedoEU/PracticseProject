@@ -4,11 +4,11 @@ public class Mouse {
     
 
     private int mouseId; 
-    private Mouse mouseType; 
+    private MouseType mouseType; 
     private double price; 
     private Quality quality; 
 
-    public Mouse(int mouseId, Mouse mouseType, double price, Quality qualty) {
+    public Mouse(int mouseId, MouseType mouseType, double price, Quality qualty) {
         this.mouseId = mouseId; 
         this.mouseType = mouseType; 
         this.price = price; 
@@ -23,7 +23,7 @@ public class Mouse {
         return this.mouseId; 
     }
 
-    protected  Mouse getMouseType() {
+    protected  MouseType getMouseType() {
         return this.mouseType; 
     }
 

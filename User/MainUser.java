@@ -22,9 +22,6 @@ public class MainUser {
         System.out.println("4. Change age"); 
         System.out.println("5. Display Users");
         System.out.println("---------------------------------");
-
-   
-
         decision();
 
     }
@@ -79,6 +76,7 @@ public class MainUser {
 
     // verify login details 
     private static void createNewUser() {
+      try {
         String username; 
         String name; 
         String password; 
@@ -141,11 +139,19 @@ public class MainUser {
         }
 
         sc.close();
+
+    }  catch (Exception e) {
+        System.out.println(""); 
+        System.out.println("An unexpected error has occured please try again"); 
+        System.out.println(""); 
+        printMenu();
+    }
             
         }
     
 
     private static void searchUser() {
+       try {
         String usernameTemp;
         Scanner sc =  new Scanner(System.in);
 
@@ -173,9 +179,16 @@ public class MainUser {
         printMenu(); 
         sc.close();
 
+       } catch (Exception e) {
+            System.out.println("An unecpeted error has occured please try again"); 
+            System.out.println(""); 
+            printMenu();
+       }
+
     }
 
     private static void changeName() {
+        try {
         String usernameTemp;
         Scanner sc =  new Scanner(System.in);
 
@@ -227,12 +240,19 @@ public class MainUser {
 
         } catch (Exception e) {
             System.out.println("An errror has occured please try again"); 
-            System.out.println(""); 
-        }
+            System.out.println("");
+            printMenu(); 
+        } 
+    } catch (Exception e) {
+        System.out.println("An unexpected error has occured please try again"); 
+        System.out.println(""); 
+        printMenu(); 
+    }
 
     }
 
     private static void changeAge() {
+    try {
         String usernameTemp; 
         Scanner sc = new Scanner(System.in); 
 
@@ -276,18 +296,26 @@ public class MainUser {
 
         sc.close(); 
         
+
         } catch (Exception e) {
             System.out.println("Age can only be a numerical value please try again");
             System.out.println(""); 
             printMenu();
         }
 
+    } catch (Exception e) {
+        System.out.println("An unexpected error has occured"); 
+        System.out.println(""); 
+        printMenu();
+    }
+
+    
+
     }
 
     private static void displayUsers() {
+        try {
         ArrayList<User> userArray = Users.printUser(); 
-
-
         if (userArray == null) {
             System.out.println(""); 
             System.out.println("No Users have been added to the system please add an user") ; 
@@ -307,7 +335,15 @@ public class MainUser {
         System.out.println(""); 
 
         printMenu();      
+
+    } catch (Exception e) {
+        System.out.println("An unexpted erro has occured please try again"); 
+       System.out.println("");
+        printMenu();
+    }    
     }
 
-
 }
+
+
+
