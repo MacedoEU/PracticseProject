@@ -22,6 +22,9 @@ public class Main {
         System.out.println("4. Change age"); 
         System.out.println("5. Display Users");
         System.out.println("---------------------------------");
+
+        System.out.println(ShopLocationEnum.ESP);
+
         decision();
 
     }
