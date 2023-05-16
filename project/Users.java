@@ -12,8 +12,6 @@ public class Users {
         if (users.size() <= 0) {
             return false;
         }
-
-
             for (int i = 0; i < users.size(); i++) {
 
                 if (users.get(i).getUsername().equals(username)) {
