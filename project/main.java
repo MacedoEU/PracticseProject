@@ -115,8 +115,6 @@ public class main {
 
       
             
-            
-
         }
     
 
@@ -150,18 +148,23 @@ public class main {
     }
 
     private static void changeName() {
-    
         String usernameTemp;
         Scanner sc =  new Scanner(System.in);
 
         System.out.println(""); 
-        System.out.println("Search for an user"); 
+        System.out.println("Change name"); 
         System.out.println("--------------------------"); 
         System.out.print("Please enter in the user username: ");
         usernameTemp = sc.nextLine(); 
 
      /// for loop to search for individual user 
         ArrayList<User> users = Users.printUser();
+
+        if (users == null) {
+            System.out.println("No username has been found please try again");
+            System.out.println("");
+            printMenu();
+        }
 
         // create a temp User 
         User userTemp = null;
@@ -192,6 +195,51 @@ public class main {
     }
 
     private static void changeAge() {
+        String usernameTemp; 
+        Scanner sc = new Scanner(System.in); 
+
+        System.out.println(""); 
+        System.out.println("Change Age");
+        System.out.println("--------------------------"); 
+        System.out.print("Please enter in the user username: ");
+        usernameTemp = sc.nextLine(); 
+
+        ArrayList<User> users = Users.printUser(); 
+
+        
+        if (users == null) {
+            System.out.println("No username has been found please try again");
+            System.out.println("");
+            printMenu();
+        }
+
+        User userTemp = null;  
+
+        for (int i = 0; i < users.size(); i++) {
+
+            if (users.get(i).getUsername().equals(usernameTemp)) {
+
+
+                userTemp = users.get(i); 
+                users.remove(i); 
+            }
+
+        }
+
+        System.out.print("Please enter in a new age for: " + userTemp.getName() + " :     "); 
+        int age = sc.nextInt(); 
+
+        userTemp.setAge(age);
+
+        users.add(userTemp);
+
+        System.out.println("Age has been changed to: " + userTemp.getAge());
+        System.out.println("");
+        printMenu();
+
+
+        
+
     }
 
 
