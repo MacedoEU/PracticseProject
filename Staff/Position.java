@@ -4,7 +4,8 @@ public enum Position {
     
 
     FULL_TIME("Full Time", 100), 
-    PART_TIME("Part Time", 50); 
+    PART_TIME("Part Time", 50), 
+    ADMIN("Admin", 110); 
 
     private final String role; 
     private final double salary; 
