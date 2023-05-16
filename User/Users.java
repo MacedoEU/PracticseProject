@@ -103,9 +103,9 @@ public class Users {
     }
 
     //create method to add arrayList
-    protected static boolean createNewUser(String username, String name, String password, int age )  {
+    protected static boolean createNewUser(String username, String name, String password, int age, double money )  {
         try {
-        User userTemp = new User(username, name, password, age); 
+        User userTemp = new User(username, name, password, age,  money); 
         Users.users.add(userTemp);
         return true; 
         }    catch (Exception e) {

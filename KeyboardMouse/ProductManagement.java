@@ -7,6 +7,7 @@ public class ProductManagement {
     private static ArrayList <Keyboard> keyboard = new ArrayList<Keyboard>();
     private static ArrayList <Mouse> mouse = new ArrayList<Mouse>();
 
+
     public static boolean addKeyboard(int id, KeyboardType keyboardType, double price, Quality quality)  {
 
         try {
@@ -18,6 +19,31 @@ public class ProductManagement {
         }
 
     }
+
+    public static boolean addKeyboard(int id, KeyboardType keyboardType, double price, Quality quality, int qty)  {
+
+        try {
+            Keyboard keyboardTemp = new Keyboard(id, keyboardType, price, quality,  qty); 
+            keyboard.add(keyboardTemp);
+            return true;
+        } catch(Exception e) {
+            return false; 
+        }
+
+    }
+
+    
+    public static boolean addMouse(int id, MouseType mouseType, double price, Quality quality, int qty) {
+
+        try {
+        Mouse mouseTemp = new Mouse(id, mouseType, price, quality, qty); 
+        mouse.add(mouseTemp);
+        return true;
+        }  catch (Exception e) {
+            return false;
+        }
+    }
+
 
     public static boolean addMouse(int id, MouseType mouseType, double price, Quality quality) {
 
@@ -109,6 +135,7 @@ public class ProductManagement {
             return null;
         }
     }
+
 
 
 

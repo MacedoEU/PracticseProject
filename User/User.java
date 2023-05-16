@@ -6,12 +6,14 @@ public class User {
     private  String name; 
     private  String password; 
     private int age; 
+    private double money; 
 
-    public User(String username, String name, String password, int age) {
+    public User(String username, String name, String password, int age, double money) {
         this.username = username; 
         this.name = name; 
         this.password = password; 
         this.age = age; 
+        this.money = money;
     }
 
     protected void setUsername(String username) {
@@ -44,6 +46,10 @@ public class User {
 
     protected  int getAge() {
         return this.age; 
+    }
+
+    protected double getMoney() {
+        return this.money; 
     }
 
     

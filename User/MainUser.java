@@ -81,6 +81,7 @@ public class MainUser {
         String name; 
         String password; 
         int age = 0;
+        double money = 0.0;
         
         Scanner sc = new Scanner(System.in); 
         System.out.println(""); 
@@ -114,8 +115,16 @@ public class MainUser {
                         createNewUser();
                       }
                       
-                      
-                      Users.createNewUser(username, name, password, age);
+                      try { 
+                        System.out.print("Please enter in the Users Money: "); 
+                        money = sc.nextDouble(); 
+                    } catch  (Exception e ) {
+                        System.out.println(""); 
+                        System.out.println("Money can only be a numerical value please try again"); 
+                        createNewUser();
+                    }
+
+                      Users.createNewUser(username, name, password, age, money);
                       
                        if (Users.validateUser(username, password) == true) {
                          System.out.println("");
@@ -171,7 +180,7 @@ public class MainUser {
         System.out.println(""); 
         System.out.println("User"); 
         System.out.println("---------------------------------------"); 
-        System.out.print("Username: "+ userTemp.getUsername() + " Name: "+ userTemp.getName() + " Age: " + userTemp.getAge());
+        System.out.print("Username: "+ userTemp.getUsername() + " Name: "+ userTemp.getName() + " Age: " + userTemp.getAge()  + " Money £" + userTemp.getMoney());
         System.out.println(""); 
         System.out.println("---------------------------------------"); 
 
@@ -327,7 +336,7 @@ public class MainUser {
         System.out.println("Users"); 
         System.out.println("-------------------------------------------"); 
         for (int i = 0; i < userArray.size(); i++ ) {
-            System.out.print("Username: " + userArray.get(i).getUsername() + " Name: " + userArray.get(i).getName() + " Age: " +  userArray.get(i).getAge()); 
+            System.out.print("Username: " + userArray.get(i).getUsername() + " Name: " + userArray.get(i).getName() + " Age: " +  userArray.get(i).getAge() + "  Money £" + userArray.get(i).getMoney()); 
             System.out.println("");
 
         }
