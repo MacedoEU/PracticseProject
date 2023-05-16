@@ -12,7 +12,7 @@ public class MainUser {
         printMenu();
     } 
 
-    private static void printMenu() {
+    public static void printMenu() {
         System.out.println(""); 
         System.out.println("---------------------------------");
         System.out.println("             Welcome"); 
