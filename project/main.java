@@ -24,6 +24,7 @@ public class main {
     }
 
     private static void decision() {
+      try { 
         System.out.print("Input: ");
         Scanner sc = new Scanner(System.in);
         int choice =  sc.nextInt(); 
@@ -52,9 +53,19 @@ public class main {
             System.out.println("Invalid decision");
             System.out.println(""); 
             printMenu();
-        }
+        } 
 
-        sc.close();
+        sc.close(); 
+
+    }  
+
+    catch (Exception e) {
+        System.out.println("Input can only be a numerical value Please try again"); 
+        System.out.println(""); 
+        printMenu();    
+    }
+
+     
 
     }
 
@@ -65,7 +76,7 @@ public class main {
         String username; 
         String name; 
         String password; 
-        int age;
+        int age = 0;
         
         Scanner sc = new Scanner(System.in); 
         System.out.println(""); 
@@ -88,9 +99,19 @@ public class main {
                              createNewUser(); 
                        }
      
-                       System.out.print("Please enter in an age: ");
+                      try {
+                      System.out.print("Please enter in an age: ");
                        age = sc.nextInt(); 
-                       Users.createNewUser(username, name, password, age);
+                      } 
+
+                      catch (Exception e) {
+                        System.out.println("Age can only be a numerical value please try again"); 
+                        System.out.println(""); 
+                        createNewUser();
+                      }
+                      
+                      
+                      Users.createNewUser(username, name, password, age);
                       
                        if (Users.validateUser(username, password) == true) {
                          System.out.println("");
@@ -241,7 +262,6 @@ public class main {
         
 
     }
-
 
     private static void displayUsers() {
         ArrayList<User> userArray = Users.printUser(); 
