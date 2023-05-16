@@ -1,4 +1,4 @@
-package project;
+package Shop;
 
 public enum ShopLocationEnum {
     

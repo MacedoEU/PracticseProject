@@ -1,4 +1,5 @@
-package project;
+package Shop;
+
 
 public class Shop {
     

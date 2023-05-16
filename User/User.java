@@ -1,4 +1,4 @@
-package project;
+package User;
 
 public class User {
 
@@ -18,7 +18,7 @@ public class User {
         this.username = username;
     }
 
-    public void setName(String name) {
+    protected void setName(String name) {
         this.name = name;
     }
 
@@ -26,15 +26,15 @@ public class User {
         this.password = password; 
     }
 
-    public void setAge(int age) {
+    protected void setAge(int age) {
         this.age = age;
     }
 
-    public String getUsername() {
+    protected String getUsername() {
         return this.username;
     }
 
-    public String getName() {
+    protected String getName() {
         return this.name;
     }
 

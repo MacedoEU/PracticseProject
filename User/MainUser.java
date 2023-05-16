@@ -1,4 +1,4 @@
-package project;
+package User;
 
 
 
@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class Main {
+public class MainUser {
     
     public static void main(String args[]) {
         printMenu();
@@ -23,7 +23,7 @@ public class Main {
         System.out.println("5. Display Users");
         System.out.println("---------------------------------");
 
-        System.out.println(ShopLocationEnum.ESP);
+   
 
         decision();
 
