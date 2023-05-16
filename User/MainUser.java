@@ -16,7 +16,7 @@ public class MainUser {
         System.out.println(""); 
         System.out.println("---------------------------------");
         System.out.println("            User"); 
-        System.out.println("1. Craete new User");
+        System.out.println("1. Create new User");
         System.out.println("2. Search User");
         System.out.println("3. Change name");
         System.out.println("4. Change age"); 
