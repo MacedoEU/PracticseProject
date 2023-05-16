@@ -1,7 +1,10 @@
 package project;
 
+
+
 import java.util.ArrayList;
 import java.util.Scanner;
+
 
 public class main {
     
@@ -134,7 +137,7 @@ public class main {
             createNewUser(); 
         }
 
-      
+        sc.close();
             
         }
     
@@ -165,6 +168,7 @@ public class main {
 
         System.out.println(""); 
         printMenu(); 
+        sc.close();
 
     }
 
@@ -189,18 +193,22 @@ public class main {
 
         // create a temp User 
         User userTemp = null;
+        int storeIndex = 0;
 
         for (int i = 0; i < users.size(); i++) {
 
             if (users.get(i).getUsername().equals(usernameTemp)) {
                 // add user to the userTemp and remove it from the array list
                 userTemp = users.get(i);
-                users.remove(i); 
+                storeIndex = i;
+         
             }
         }
 
+        try {
         System.out.print("Please enter in a new name for: " + userTemp.getName() + ":    "); 
         String name = sc.nextLine(); 
+        users.remove(storeIndex); 
 
         userTemp.setName(name);
 
@@ -212,6 +220,12 @@ public class main {
         System.out.println("");
         printMenu();
 
+        sc.close();
+
+        } catch (Exception e) {
+            System.out.println("An errror has occured please try again"); 
+            System.out.println(""); 
+        }
 
     }
 
@@ -235,31 +249,35 @@ public class main {
         }
 
         User userTemp = null;  
+        int storeIndex = 0;
 
         for (int i = 0; i < users.size(); i++) {
 
             if (users.get(i).getUsername().equals(usernameTemp)) {
-
-
                 userTemp = users.get(i); 
-                users.remove(i); 
+                storeIndex = i;
             }
 
         }
 
+        try {
         System.out.print("Please enter in a new age for: " + userTemp.getName() + " :     "); 
         int age = sc.nextInt(); 
-
         userTemp.setAge(age);
-
+        users.remove(storeIndex); 
         users.add(userTemp);
 
         System.out.println("Age has been changed to: " + userTemp.getAge());
         System.out.println("");
         printMenu();
 
-
+        sc.close(); 
         
+        } catch (Exception e) {
+            System.out.println("Age can only be a numerical value please try again");
+            System.out.println(""); 
+            printMenu();
+        }
 
     }
 
@@ -288,7 +306,7 @@ public class main {
 
         printMenu();
 
-        
+      
     }
 
 
