@@ -74,6 +74,7 @@ public class Users {
         }
     }
 
+    //method return user array list
     public static ArrayList<User> printUser() {
         
 

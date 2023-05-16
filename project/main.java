@@ -161,7 +161,32 @@ public class main {
         usernameTemp = sc.nextLine(); 
 
      /// for loop to search for individual user 
-     
+        ArrayList<User> users = Users.printUser();
+
+        // create a temp User 
+        User userTemp = null;
+
+        for (int i = 0; i < users.size(); i++) {
+
+            if (users.get(i).getUsername().equals(usernameTemp)) {
+                // add user to the userTemp and remove it from the array list
+                userTemp = users.get(i);
+                users.remove(i); 
+            }
+        }
+
+        System.out.print("Please enter in a new name for: " + userTemp.getName() + ":    "); 
+        String name = sc.nextLine(); 
+
+        userTemp.setName(name);
+
+        users.add(userTemp);
+
+        Users.searchUser(usernameTemp);
+
+        System.out.println("Name has been changed to: " + userTemp.getName());
+        System.out.println("");
+        printMenu();
 
 
     }
