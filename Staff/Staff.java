@@ -1,17 +1,24 @@
 package Staff;
 
+
+import java.util.ArrayList;
+
+import Shop.Shop; 
+
 public class Staff {
  
     private String username; 
     private String name; 
     private Position role; 
-    private String password; 
+    private String password;
+    private ArrayList<Shop> shop = new ArrayList<Shop>();  
 
-    public Staff (String username, String name, Position role, String password) {
+    public Staff (String username, String name, Position role, String password, ArrayList<Shop> shop) {
         this.username = username;
         this.name = name; 
         this.role = role; 
         this.password = password; 
+        this.shop = shop; 
     }
 
     protected String getUsername () {
