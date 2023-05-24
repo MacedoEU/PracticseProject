@@ -6,12 +6,27 @@ package Tickets;
 public class Ticket {
     
 
-private String username; 
-private String password; 
+private int ticketNumber; 
+private String message; 
+private boolean complete  = false; 
 
-public Ticket(String username, String password) {
-    this.username = username; 
-    this.password = password; 
+public Ticket(int ticketNumber, String message, boolean complete) {
+    this.ticketNumber = ticketNumber; 
+    this.message = message; 
+    this.complete = complete;
 }
+
+
+protected int getTicket() {
+    return this.ticketNumber; 
+}
+
+protected String getMessage() {
+    return this.message; 
+}
+
+
+
+
 
 }
