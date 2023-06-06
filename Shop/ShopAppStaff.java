@@ -2,6 +2,9 @@ package Shop;
 
 import java.util.Scanner;
 
+import User.MainUser;
+import User.User;
+
 public class ShopAppStaff {
     
     public static void main(String[] args) {
@@ -28,23 +31,23 @@ public class ShopAppStaff {
             int choice = sc.nextInt(); 
 
             if (choice == 1) {
-               
+               createTransaction();
             }
 
             else if (choice == 2) {
-
+                searchForProduct();
             }
 
             else if (choice == 3 ) {
-
+                resetCustomerPassword(); 
             }
 
             else if (choice == 4) {
-
+                displayAllTransactions();
             }
 
             else if (choice == 5) {
-
+                MainUser.main(null);;
             }
 
             else {
@@ -63,6 +66,18 @@ public class ShopAppStaff {
             printMenu();
         }
 
+    }
+
+    private static void createTransaction() {
+    }
+
+    private static void searchForProduct() {
+    }
+
+    private static void resetCustomerPassword() {
+    }
+
+    private static void displayAllTransactions() {
     }
 
 
